@@ -1,0 +1,67 @@
+docker info                                 -- > Display Docker system information
+
+docker ps                                   -- >  List running containers
+
+docker ps --all                             -- > List all containers (any state)
+
+docker run -d nginx                         -- > Run container in background (detached mode)
+
+docker run -it nginx /bin/bash              -- > Run container in interactive mode
+
+docker stop nginx_containers                -- > Stop a running container
+
+docker start nginx_containers               -- > Start a stopped container
+
+docker restart nginx_containers             -- > Restart a container
+
+docker rm nginx_containers                  -- > Remove a stopped container
+
+docker rm -f nginx_containers               -- > Force remove a running container
+
+docker exec -it nginx_containers  /bin/bash -- > Open shell in running container
+
+docker logs nginx_containers                -- > View container logs
+
+docker logs -f nginx_containers             -- > Follow container logs in real time
+
+docker images                               -- > List local images
+
+docker pull <images>                        -- > Download image from registry
+
+docker build -t dockerfile .                -- > Build image from Dockerfile
+
+docker rmi <images>                         -- > Remove an image
+
+docker image prune                          -- > Remove dangling images
+
+docker ps -- q                              -- > Adding the --quiet parameter modifies the docker ps output and displays only the IDs of running containers 
+
+docker ps -a -q                             -- > List IDs of all containers (irrespective of state)
+
+docker ps -f name=nginx_containers          -- > You can filter the output of docker ps and docker ps -a commands using the --filter option (or -f in short)
+
+docker ps -a -f status=running              -- > We can also filter the containers on the basis of the status.
+
+docker top nginx_containers                 -- > To list the processes running within a container, run.
+
+docker run -- name nginx_containers01 -d 
+
+ -p 8080:80 nginx                           -- > map ports of container 
+ 
+
+docker rename nginx_containers 
+ 
+	nginx_containers02                      -- > To change the name of a Docker container, use the docker rename command.
+	
+docker run -it nginx /bin/bash              -- > Run container in interactive mode
+
+docker container rm $(docker 
+
+	container ls -a -f status=exited -q)	-- > Removing all Exited Containers.
+	
+docker image rm $(docker image ls -f 
+
+	dangling=true -q)                       -- > Removing Dangling Images
+	
+
+	
