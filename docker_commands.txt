@@ -61,7 +61,4 @@ docker container rm $(docker
 	
 docker image rm $(docker image ls -f 
 
-	dangling=true -q)                       -- > Removing Dangling Images
-	
-
-	
+	dangling=true -q)                       -- > Removing Dangling Images	
