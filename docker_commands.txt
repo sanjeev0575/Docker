@@ -62,3 +62,43 @@ docker container rm $(docker
 docker image rm $(docker image ls -f 
 
 	dangling=true -q)                       -- > Removing Dangling Images	
+
+---
+
+Docker Networking 
+
+docker network ls                            -- > list network
+
+docker network inspect my-nginx-networking   -- > inspect network 
+
+docker network create my-nginx-networking    -- > create network 
+
+docker network rm my-nginx-networking        -- > remove network
+
+docker network prune                         -- > remove unused network
+
+docker run -d --name nginx --network \
+
+	my-nginx-networking my-nginx            -- > run container in network 
+	
+docker network connect my-nginx-networking \
+ 
+	nginx                                   -- > connect existing container
+	
+docker network disconnect my-nginx-networking \
+	
+	nginx                                   -- > disconnect container
+	
+docker network create --subnet 192.168.1.0/24 \ 
+
+	my-nginx-networking                      -- > create network with subnet
+	
+docker network create -d bridge  \
+
+	my-nginx-networking                      -- > create network with drive
+	
+docker run --network host nginx              -- > use host network 
+
+docker run --network none nginx              -- > disable networking
+
+docker inspect my-nginx | grep IPAddress     --> check container ip by using debugging 
