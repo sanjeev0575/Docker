@@ -102,3 +102,44 @@ docker run --network host nginx              -- > use host network
 docker run --network none nginx              -- > disable networking
 
 docker inspect my-nginx | grep IPAddress     --> check container ip by using debugging 
+
+---
+
+docker volume 
+
+
+docker create volume nginx-vol              -- > create volume
+
+docker volume ls                            -- > list volume
+
+docker volume inspect nginx-vol             -- > inspect volume
+
+docker volume rm nginx-vol                  -- > remove volume
+
+docker volume prune                         -- > remove unused volume
+
+docker run -d \
+--name nginx \
+-v nginx-vol:/data \
+busybox sleep 3600                          -- > run container with volume 
+
+docker run -d \
+--name nginx \
+--mount source=nginx-vol,target=/data \
+busybox sleep 3600                         -- > run container with volume (--mount recommended)
+
+
+docker volume create --driver local \
+
+	nginx-vol                              -- > create volume with drive 
+	
+	
+docker run -d \
+--mount source=nginx-vol, \ 
+target=/data,readonly \
+my nginx                                   -- > use read only volume
+
+
+docker inspect nginx_containers01          -- > check volume usage in container 
+
+docker volume inspect my-nginx             -- > check volume path on host
