@@ -143,3 +143,35 @@ my nginx                                   -- > use read only volume
 docker inspect nginx_containers01          -- > check volume usage in container 
 
 docker volume inspect my-nginx             -- > check volume path on host
+
+Container Security
+
+docker run -u 1001 nginx                 -- > run containers as non-root user 
+
+docker run -- read-only nginx            -- > read only filesystem 
+
+docker run --cap-drop ALL nginx          -- > drop all linux capabilities
+
+docker run --cap-add NET_ADMIN nginx     -- > add only required capability
+
+docker run -- memory=512 --cpus=1 nginx  -- > limit memory & cpu 
+
+docker run --security-opt no-new-privileges \
+
+	nginx                                 -- > Prevent privilege escalation
+	
+	
+---
+
+docker history nginx                      -- > check image history
+
+docker inspect nginx                      -- > inspect image details
+
+---
+
+secret & Environment security-opt
+
+docker run -e DB_PASSWORD=secret nginx   --> Pass environment variable (avoid hardcoding secrets)
+
+docker run --env-file .env nginx         --> Use env file
+
