@@ -27,7 +27,7 @@ chmod +x ~/.docker/cli-plugins/docker-compose
 # docker-compose version
 
 ```
-docker-compose version
+docker compose version
 ```
 
 # Quick workaround (if you want immediate run)
