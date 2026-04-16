@@ -175,3 +175,12 @@ docker run -e DB_PASSWORD=secret nginx   --> Pass environment variable (avoid ha
 
 docker run --env-file .env nginx         --> Use env file
 
+---
+
+docker compose up:    Builds (if necessary), creates, and starts all defined services at once.
+docker compose up -d: Runs the entire stack in the background (detached mode).
+docker compose down:  Stops and removes all containers and networks created by the Compose file.
+docker compose ps:    Lists the status of the services currently running in your stack.
+docker compose logs:  Displays the aggregated log output from all services for easier debugging
+
+---
