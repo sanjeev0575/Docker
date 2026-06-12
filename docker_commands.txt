@@ -109,6 +109,8 @@ docker run --network none nginx              -- > disable networking
 
 docker inspect my-nginx | grep IPAddress     --> check container ip by using debugging 
 
+docker network rm $(docker network ls -q)     -->  Remove all custom networks
+
 ---
 
 docker volume 
