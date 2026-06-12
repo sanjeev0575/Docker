@@ -63,6 +63,12 @@ docker image rm $(docker image ls -f
 
 	dangling=true -q)                       -- > Removing Dangling Images	
 
+docker rm -f $(docker ps -aq)               --> To delete all containers in Docker.
+
+docker rmi -f $(docker images -a -q)        -->  To delete all Docker images at once.
+
+
+
 ---
 
 Docker Networking 
